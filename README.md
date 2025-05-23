@@ -1,12 +1,59 @@
-# React + Vite
+# Cloud Photo Drive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple cloud-based photo drive app built using React and Supabase. Users can upload images into custom categories, and view them later by category. Authentication and storage handled by Supabase.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📸 Upload photos to cloud storage
+- 🗂️ Organize photos into categories
+- 🔐 User authentication
+- 🌐 Real-time updates with Supabase
+- 🎨 Clean modern UI with CSS custom styling
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Supabase (Auth + Storage + Postgres)
+- Node.js
+- Cloudinary (optional for image optimization)
+
+## Getting Started
+
+1. Clone the repo:
+```bash
+git clone https://github.com/your-username/cloud-photo-drive.git
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up `.env` file:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+4. Run the app:
+```bash
+npm run dev
+```
+
+## Database Schema
+
+### `categories` Table
+- `id` (uuid)
+- `name` (text)
+- `user_id` (uuid)
+
+### `photos` Table
+- `id` (uuid)
+- `url` (text)
+- `category_id` (uuid)
+- `user_id` (uuid)
+- `created_at` (timestamp)
+
+## License
+
+MIT
